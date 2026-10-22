@@ -1,0 +1,15 @@
+docker exec -it wordpress bash
+
+# dentro do container:
+curl -o /tmp/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x /tmp/wp
+cd /var/www/html
+
+/tmp/wp core version --allow-root      # confere a versão atual
+/tmp/wp plugin update --all --allow-root
+/tmp/wp theme update --all --allow-root
+/tmp/wp core update --allow-root       # atualiza o core
+/tmp/wp core update-db --allow-root    # atualiza o schema do banco
+/tmp/wp core version --allow-root      # confirma
+
+chown -R www-data:www-data /var/www/html   # garante o dono certo depois
