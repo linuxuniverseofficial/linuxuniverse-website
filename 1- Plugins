@@ -1,0 +1,5 @@
+cd /var/www/html
+
+/tmp/wp plugin list --allow-root                        # pega o nome (slug) exato
+/tmp/wp plugin deactivate nome-do-plugin --allow-root
+/tmp/wp plugin delete nome-do-plugin --allow-root
